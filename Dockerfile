@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM boomalien/alpine-python2
 LABEL maintainer="Oliver Mazur"
 LABEL Description="Panstamp Lagarto SWAP multi arch image. This Image uses alpine as base image"
 
