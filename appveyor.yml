@@ -4,8 +4,8 @@ image:
 
 environment:
   matrix:
-    - ARCH: arm
-    - ARCH: arm64
+    - ARCH: arm32v6
+    - ARCH: arm64v8
     - ARCH: amd64
 
 build_script:
