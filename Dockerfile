@@ -1,6 +1,11 @@
-FROM boomalien/alpine-python2
+ARG arch=amd64
+FROM boomalien/alpine-python2:${arch}-1.07
 LABEL maintainer="Oliver Mazur"
 LABEL Description="Panstamp Lagarto SWAP multi arch image. This Image uses alpine as base image"
+
+COPY tmp/qemu-arm-static /usr/bin/qemu-arm-static
+COPY tmp/qemu-aarch64-static /usr/bin/qemu-aarch64-static
+
 
 RUN easy_install paho-mqtt && \
     easy_install pyserial && \
