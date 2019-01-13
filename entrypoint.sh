@@ -1,8 +1,6 @@
 
 #!/bin/sh
 
-set -e
-
 # If --user is used on command line
 if [ "$(id -u)" != '0' ]; then
     exec "$@"
