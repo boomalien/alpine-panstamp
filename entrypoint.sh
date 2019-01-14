@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 # If --user is used on command line
