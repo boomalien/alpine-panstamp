@@ -10,6 +10,8 @@ ENV GROUP_ID=1000
 COPY tmp/qemu-arm-static /usr/bin/qemu-arm-static
 COPY tmp/qemu-aarch64-static /usr/bin/qemu-aarch64-static
 
+WORKDIR /opt
+
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache \
@@ -17,10 +19,9 @@ RUN apk update && \
     pip --no-cache-dir install paho-mqtt  \
     pyserial \
     CherryPy==17.3.0 \
-    pycrypto
-
-WORKDIR /opt
-RUN git clone https://github.com/panStamp/python_tools.git
+    pycrypto && \
+    rm -rf /var/lib/apt/lists/* && \
+    git clone https://github.com/panStamp/python_tools.git
 
 WORKDIR python_tools/pyswap
 RUN python /opt/python_tools/pyswap/setup.py install
